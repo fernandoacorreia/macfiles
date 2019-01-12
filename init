@@ -37,7 +37,7 @@ function add_ssh_key_to_agent() {
   # Set config file
   if ! -f ~/.ssh/config
   then
-    echo <<EOF >~/.ssh/config
+    cat <<EOF >~/.ssh/config
 Host *
   AddKeysToAgent yes
   UseKeychain yes
