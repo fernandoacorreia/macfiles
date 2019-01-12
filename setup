@@ -11,13 +11,6 @@ function missing_executable() {
   ! [ -x "$(command -v ${executable})" ]
 }
 
-function install_homebrew() {
-  if missing_executable brew; then
-    echo "Installing Homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
-}
-
 function install_pip() {
   if missing_executable pip; then
     echo "Installing pip"
@@ -33,8 +26,6 @@ function install_ansible() {
 }
 
 function install_prerequisites() {
-  # TODO move homebrew to Ansible
-  install_homebrew
   install_pip
   install_ansible
 }
