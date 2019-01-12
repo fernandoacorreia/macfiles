@@ -1,0 +1,73 @@
+#!/bin/bash
+#
+# Downloads the macfiles repository on a fresh machine and runs setup.
+#
+set -o nounset -o errexit -o pipefail
+
+function cli_dev_tools_installed() {
+  xcode-select --print-path &>/dev/null
+}
+
+function install_cli_dev_tools() {
+  if ! cli_dev_tools_installed; then
+    echo "Installing command-line developer tools"
+    xcode-select --install
+    while ! cli_dev_tools_installed; do
+      echo "Waiting for installation to finish"
+      sleep 10
+    done
+  fi
+}
+
+function create_ssh_key() {
+  if ! test -f $HOME/.ssh/id_rsa
+  then
+    echo "Creating ssh key"
+    ssh-keygen -t rsa -b 4096
+    echo "New ssh key created:"
+    cat $HOME/.ssh/id_rsa.pub
+    echo "Add it to your GitHub account and run this script again."
+    echo "See https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/"
+    exit 1
+  fi
+}
+
+function add_ssh_key_to_agent() {
+  echo "Adding ssh key to ssh agent"
+  # Set config file
+  if ! -f ~/.ssh/config
+  then
+    echo <<EOF >~/.ssh/config
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+EOF
+  fi
+  # Start agent
+  eval "$(ssh-agent -s)"
+  # Add key
+  ssh-add -K ~/.ssh/id_rsa
+}
+
+function clone_repository() {
+  if ! test -d $HOME/macfiles
+  then
+    REPO_URL="git@github.com:fernandoacorreia/macfiles.git"
+    echo "Cloning from $REPO_URL"
+    cd $HOME
+    git clone $REPO_URL
+  fi
+}
+
+function run_setup() {
+  echo "Running setup"
+  cd $HOME/macfiles
+  ./setup
+}
+
+install_cli_dev_tools
+create_ssh_key
+add_ssh_key_to_agent
+clone_repository
+run_setup

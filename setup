@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# Sets up machine using Ansible, installing it if necessary.
+#
+set -o nounset -o errexit -o pipefail
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+function missing_executable() {
+  local executable=$1
+  ! [ -x "$(command -v ${executable})" ]
+}
+
+function install_homebrew() {
+  if missing_executable brew; then
+    echo "Installing Homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+}
+
+function install_pip() {
+  if missing_executable pip; then
+    echo "Installing pip"
+    sudo easy_install pip
+  fi
+}
+
+function install_ansible() {
+  if missing_executable ansible-playbook; then
+    echo "Installing Ansible"
+    sudo pip install ansible
+  fi
+}
+
+function install_prerequisites() {
+  # TODO move homebrew to Ansible
+  install_homebrew
+  install_pip
+  install_ansible
+}
+
+function apply_playbook() {
+  echo "Applying Ansible playbook"
+  cd "$SCRIPT_DIR/ansible"
+  export ANSIBLE_NOCOWS=1
+  ansible-playbook -i inventory --ask-become-pass playbook.yml
+}
+
+echo "Setting up machine"
+install_prerequisites
+apply_playbook
+echo "Finished setting up machine"
