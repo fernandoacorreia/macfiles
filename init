@@ -4,6 +4,18 @@
 #
 set -o nounset -o errexit -o pipefail
 
+CONFIG_FILE_NAME=~/.macfiles.config
+if ! test -f $CONFIG_FILE_NAME
+then
+  echo "File $CONFIG_FILE_NAME not found."
+  exit 1
+fi
+source $CONFIG_FILE_NAME
+
+echo "Configuration from $CONFIG_FILE_NAME:"
+echo "EMAIL=$EMAIL"
+echo "REPO=$REPO"
+
 function cli_dev_tools_installed() {
   xcode-select --print-path &>/dev/null
 }
@@ -23,7 +35,7 @@ function create_ssh_key() {
   if ! test -f $HOME/.ssh/id_rsa
   then
     echo "Creating ssh key"
-    ssh-keygen -t rsa -b 4096
+    ssh-keygen -t rsa -b 4096 -C $EMAIL
     echo "New ssh key created:"
     cat $HOME/.ssh/id_rsa.pub
     echo "Add it to your GitHub account and run this script again."
@@ -53,10 +65,9 @@ EOF
 function clone_repository() {
   if ! test -d $HOME/macfiles
   then
-    REPO_URL="git@github.com:fernandoacorreia/macfiles.git"
-    echo "Cloning from $REPO_URL"
+    echo "Cloning from $REPO"
     cd $HOME
-    git clone $REPO_URL
+    git clone $REPO macfiles
   fi
 }
 
