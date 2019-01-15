@@ -1,0 +1,13 @@
+---
+- name: "Check Hack font installation status"
+  stat:
+    path: "/Library/Fonts/Hack-Regular.ttf"
+  register: "hack_check"
+
+- name: "Install Hack font"
+  shell: |
+    cd $(mktemp -d -t 'hack')
+    curl -L https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip -o hack.zip
+    unzip hack.zip
+    cp ttf/* /Library/Fonts/
+  when: not hack_check.stat.exists
