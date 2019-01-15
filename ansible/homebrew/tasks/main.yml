@@ -7,3 +7,13 @@
 - name: "Install Homebrew"
   shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   when: not homebrew_check.stat.exists
+
+- name: "Check Cask installation status"
+  stat:
+    path: "/usr/local/Homebrew/Library/Homebrew/cask"
+  register: "cask_check"
+
+
+- name: "Install Cask"
+  command: brew tap caskroom/cask
+  when: not cask_check.stat.exists
