@@ -1,2 +1,2 @@
-- Karabiner
+- save ~/.config/karabiner/ (create symlink)
 - tree
