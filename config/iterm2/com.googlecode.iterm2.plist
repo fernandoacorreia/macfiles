@@ -54,9 +54,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1169 110 445 247 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>331 558 796 486 0 0 1680 1050 </string>
+	<string>331 532 918 512 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>191 80 890 552 0 0 1680 1050 </string>
+	<string>667 108 890 552 0 0 2560 1440 </string>
+	<key>NeverWarnAboutShortLivedSessions_B16D08A2-EACF-4587-8E19-4888F1CBA2BC</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_B16D08A2-EACF-4587-8E19-4888F1CBA2BC_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -860,7 +864,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -1219,7 +1223,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -1295,6 +1299,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/fernando/macfiles/config/iterm2</string>
+	<key>QuitWhenAllWindowsClosed</key>
+	<false/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -1304,7 +1310,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-01-15T04:10:24Z</date>
+	<date>2019-01-17T01:09:24Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>WordCharacters</key>
