@@ -1,0 +1,11 @@
+# tig: https://github.com/jonas/tig
+---
+- name: "Check tig installation status"
+  stat:
+    path: "/usr/local/bin/tig"
+  register: "tig_check"
+
+- name: "Install tig"
+  command: brew install tig
+  when: not tig_check.stat.exists
+  
