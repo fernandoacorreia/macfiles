@@ -3,6 +3,7 @@
 
   roles:
   - common
+  - macfiles
   - homebrew
   - hack
   - iterm2

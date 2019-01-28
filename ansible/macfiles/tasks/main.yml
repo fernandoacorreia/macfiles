@@ -1,0 +1,4 @@
+---
+- name: Set macfiles directory
+  set_fact:
+    macfiles_dir: "{{ lookup('env','HOME') }}/macfiles"
