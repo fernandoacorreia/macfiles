@@ -1,0 +1,12 @@
+# fzf: 
+---
+- name: "Check fzf installation status"
+  stat:
+    path: "/usr/local/bin/fzf"
+  register: "fzf_check"
+
+- name: "Install fzf"
+  shell: |
+    brew install fzf
+    /usr/local/opt/fzf/install
+  when: not fzf_check.stat.exists
