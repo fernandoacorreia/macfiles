@@ -3,6 +3,7 @@ alias gfa='git fetch --all --tags --prune'
 alias gg='git grep'
 alias gpf='git push -f origin HEAD'
 alias gpu='git push -u origin HEAD'
+alias gst='git status'
 
 # Color in diff and grep
 alias diff="colordiff"
