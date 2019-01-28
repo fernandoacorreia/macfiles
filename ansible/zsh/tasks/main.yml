@@ -1,0 +1,6 @@
+---
+- name: Set Z shell as default shell
+  become: yes
+  user:
+    name: "{{ username_on_the_host.stdout }}"
+    shell: /bin/zsh
