@@ -2,7 +2,7 @@
 alias gcd='git checkout develop'
 alias gfa='git fetch --all --tags --prune'
 alias gg='git grep'
-alias gp='git pull'
+alias gl='git pull'
 alias gpf='git push -f origin HEAD'
 alias gpu='git push -u origin HEAD'
 alias gst='git status'
