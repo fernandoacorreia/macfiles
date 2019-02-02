@@ -18,3 +18,6 @@ alias k='kubectl'
 # Domino development
 alias c1='cd $HOME/Projects/domino'
 alias sdc='sbt domino/test:compile domino/it:compile'
+
+# Enable alias expansion with watch
+alias watch='watch '  # https://unix.stackexchange.com/a/25329/56711
