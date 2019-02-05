@@ -1,0 +1,10 @@
+# pyenv: https://github.com/pyenv/pyenv#homebrew-on-macos
+---
+- name: "Check pyenv installation status"
+  stat:
+    path: "/usr/local/bin/pyenv"
+  register: "pyenv_check"
+
+- name: "Install pyenv"
+  command: brew install pyenv
+  when: not pyenv_check.stat.exists

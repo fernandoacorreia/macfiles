@@ -12,5 +12,3 @@ DEFAULT_USER=$(whoami)
 #antigen apply
 
 source ~/.profile
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

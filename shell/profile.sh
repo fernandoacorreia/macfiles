@@ -7,3 +7,4 @@ fi
 source $HOME/macfiles/shell/environment.sh
 source $HOME/macfiles/shell/aliases.sh
 source $HOME/macfiles/shell/less-termcap.sh
+source $HOME/macfiles/shell/init.sh
