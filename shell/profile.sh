@@ -8,3 +8,9 @@ source $HOME/macfiles/shell/environment.sh
 source $HOME/macfiles/shell/aliases.sh
 source $HOME/macfiles/shell/less-termcap.sh
 source $HOME/macfiles/shell/init.sh
+
+# Support a local profile script that's not saved to source control.
+if test -f $HOME/local_profile.sh
+then
+  source $HOME/local_profile.sh
+fi
