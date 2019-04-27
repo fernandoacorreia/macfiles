@@ -2,4 +2,5 @@
 - name: Install general utilities
   command: brew install {{item}}
   with_items:
+    - tree
     - watch
