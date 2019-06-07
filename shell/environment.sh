@@ -6,7 +6,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export LESS='--quit-if-one-screen --no-init --RAW-CONTROL-CHARS'
 
 # sbt
-export SBT_OPTS="-Xss256m -Xmx4g"
+export SBT_OPTS="-Xss256m -Xmx6g"
 
 # pyenv
 export PYENV_ROOT=/usr/local/opt/pyenv
