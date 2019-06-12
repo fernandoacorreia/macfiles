@@ -8,7 +8,10 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-antigen theme agnoster
+# https://github.com/romkatv/powerlevel10k#antigen
+antigen theme romkatv/powerlevel10k
+source ~/macfiles/vendor/.purepower
+
 antigen apply
 
 source ~/.profile
