@@ -1,2 +1,3 @@
 - save ~/.config/karabiner/ (create symlink)
-- tree
+- nvim-miniyank
+- Ag support in neovim
