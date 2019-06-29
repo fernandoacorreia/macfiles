@@ -13,3 +13,6 @@
 [submodule "vendor/editorconfig-vim"]
 	path = vendor/editorconfig-vim
 	url = git@github.com:fernandoacorreia/editorconfig-vim.git
+[submodule "vendor/fzf.vim"]
+	path = vendor/fzf.vim
+	url = git@github.com:fernandoacorreia/fzf.vim.git
