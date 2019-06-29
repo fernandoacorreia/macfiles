@@ -15,3 +15,6 @@ export PYENV_ROOT=/usr/local/opt/pyenv
 # https://dougblack.io/words/zsh-vi-mode.html
 bindkey -v
 export KEYTIMEOUT=1
+
+# neovim
+export EDITOR=nvim
