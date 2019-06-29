@@ -10,3 +10,8 @@ export SBT_OPTS="-Xss256m -Xmx6g"
 
 # pyenv
 export PYENV_ROOT=/usr/local/opt/pyenv
+
+# zsh vi mode
+# https://dougblack.io/words/zsh-vi-mode.html
+bindkey -v
+export KEYTIMEOUT=1
