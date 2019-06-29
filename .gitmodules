@@ -4,3 +4,6 @@
 [submodule "vendor/jellybeans.vim"]
 	path = vendor/jellybeans.vim
 	url = git@github.com:fernandoacorreia/jellybeans.vim.git
+[submodule "vendor/vim-auto-save"]
+	path = vendor/vim-auto-save
+	url = git@github.com:fernandoacorreia/vim-auto-save.git
