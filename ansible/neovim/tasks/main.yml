@@ -1,0 +1,9 @@
+---
+- name: "Check neovim installation status"
+  stat:
+    path: "/usr/local/bin/nvim"
+  register: "neovim_check"
+
+- name: "Install neovim"
+  command: brew install neovim
+  when: not neovim_check.stat.exists
