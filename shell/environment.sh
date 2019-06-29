@@ -18,3 +18,6 @@ export KEYTIMEOUT=1
 
 # neovim
 export EDITOR=nvim
+
+# Add bin directory to path
+export PATH="$HOME/macfiles/bin:$PATH"
