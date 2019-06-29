@@ -7,3 +7,7 @@
 - name: "Install neovim"
   command: brew install neovim
   when: not neovim_check.stat.exists
+
+- name: "Create symlink to neovim"
+  file: src=/usr/local/bin/nvim dest=/usr/local/bin/vi state=link force=yes
+  become: yes
