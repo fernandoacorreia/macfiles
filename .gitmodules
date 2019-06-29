@@ -1,3 +1,6 @@
 [submodule "vendor/antigen"]
 	path = vendor/antigen
 	url = git@github.com:fernandoacorreia/antigen.git
+[submodule "vendor/jellybeans.vim"]
+	path = vendor/jellybeans.vim
+	url = git@github.com:fernandoacorreia/jellybeans.vim.git
