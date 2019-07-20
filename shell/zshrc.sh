@@ -14,4 +14,5 @@ source ~/macfiles/vendor/.purepower
 
 antigen apply
 
+source <(kubectl completion zsh)
 source ~/.profile
