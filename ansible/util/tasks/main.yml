@@ -4,6 +4,7 @@
   with_items:
     - htop
     - ripgrep
+    - stern
     - tree
     - watch
 
