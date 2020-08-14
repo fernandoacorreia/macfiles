@@ -1,9 +1,0 @@
----
-- name: "Check KeePassXC installation status"
-  stat:
-    path: "/Applications/KeePassXC.app"
-  register: "keepass_check"
-
-- name: "Install KeePassXC"
-  command: brew cask install keepassxc
-  when: not keepass_check.stat.exists
