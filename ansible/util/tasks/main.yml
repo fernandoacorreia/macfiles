@@ -2,6 +2,7 @@
 - name: Install general utilities
   command: brew install {{item}}
   with_items:
+    - gh
     - htop
     - ripgrep
     - stern
