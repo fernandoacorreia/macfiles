@@ -24,3 +24,8 @@ export PATH="$HOME/macfiles/bin:$PATH"
 
 # Add gnubin to PATH
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+
+# Golang
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/opt/go/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"

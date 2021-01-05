@@ -7,17 +7,3 @@
 - name: "Install iTerm2"
   command: brew cask install iterm2
   when: not iterm2_check.stat.exists
-
-- name: "Check iTerm2 installation status"
-  stat:
-    path: "/Users/fernando/Library/Preferences/com.googlecode.iterm2.plist"
-  register: "iterm2_config_check"
-
-- name: "Create symlink for iTerm2 configuration"
-  shell: |
-    rm -f /Users/fernando/Library/Preferences/com.googlecode.iterm2.plist
-    ln -s ~/macfiles/config/iterm2/com.googlecode.iterm2.plist /Users/fernando/Library/Preferences/com.googlecode.iterm2.plist
-  when: iterm2_config_check.stat.islnk is not defined or iterm2_config_check.stat.islnk == False
-  args:
-    warn: no
-
