@@ -22,14 +22,10 @@ function upgrade_pip() {
 
 function install_ansible() {
   if missing_executable ansible-playbook; then
+    upgrade_pip
     echo "Installing Ansible"
     sudo pip3 install ansible
   fi
-}
-
-function install_prerequisites() {
-  upgrade_pip
-  install_ansible
 }
 
 function apply_playbook() {
@@ -40,6 +36,6 @@ function apply_playbook() {
 }
 
 echo "Setting up machine"
-install_prerequisites
+install_ansible
 apply_playbook
 echo "Finished setting up machine"
