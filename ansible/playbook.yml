@@ -4,7 +4,7 @@
   roles:
   - common
   - macfiles
-  - homebrew
+  - cask
   - util
   - hack-font
   - iterm2

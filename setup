@@ -20,6 +20,15 @@ function upgrade_pip() {
   sudo -H pip3 install --upgrade pip
 }
 
+function install_brew() {
+  if missing_executable brew; then
+    upgrade_pip
+    echo "Installing Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+}
+
 function install_ansible() {
   if missing_executable ansible-playbook; then
     upgrade_pip
@@ -36,6 +45,7 @@ function apply_playbook() {
 }
 
 echo "Setting up machine"
+install_brew
 install_ansible
 apply_playbook
 echo "Finished setting up machine"

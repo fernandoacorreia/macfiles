@@ -1,3 +1,4 @@
+- echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/fernando/.zprofile
 - save ~/.config/karabiner/ (create symlink)
 - nvim-miniyank
 - Ag support in neovim

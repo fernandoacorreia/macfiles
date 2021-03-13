@@ -1,0 +1,10 @@
+---
+- name: "Check Cask installation status"
+  stat:
+    path: "/usr/local/Homebrew/Library/Homebrew/cask"
+  register: "cask_check"
+
+
+- name: "Install Cask"
+  command: brew tap homebrew/cask
+  when: not cask_check.stat.exists
