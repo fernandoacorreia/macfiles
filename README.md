@@ -6,7 +6,7 @@ Files from my home directory on a Mac
 
 ```
 cd ~
-git clone --recurse-submodules git@github.com:fernandoacorreia/macfiles.git
+git clone --recurse-submodules https://github.com/fernandoacorreia/macfiles.git
 cd macfiles
 ./setup
 ```
