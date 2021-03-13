@@ -11,8 +11,9 @@
     - tree
     - watch
 
-- name: Create link for ~/.editorconfig
-  file:
-    src: "{{ macfiles_dir }}/.editorconfig"
-    dest: "{{ home_dir }}/.editorconfig"
-    state: link
+# REPLACE WITH A TEMPLATE
+# - name: Create link for ~/.editorconfig
+#   file:
+#     src: "{{ macfiles_dir }}/.editorconfig"
+#     dest: "{{ home_dir }}/.editorconfig"
+#     state: link
