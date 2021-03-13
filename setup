@@ -11,22 +11,24 @@ function missing_executable() {
   ! [ -x "$(command -v ${executable})" ]
 }
 
-function install_pip() {
-  if missing_executable pip; then
-    echo "Installing pip"
-    sudo easy_install pip
+function upgrade_pip() {
+  if missing_executable pip3; then
+    echo "pip3 not found"
+    exit 1
   fi
+  echo "Upgrading pip3"
+  sudo -H pip3 install --upgrade pip
 }
 
 function install_ansible() {
   if missing_executable ansible-playbook; then
     echo "Installing Ansible"
-    sudo pip install ansible
+    sudo pip3 install ansible
   fi
 }
 
 function install_prerequisites() {
-  install_pip
+  upgrade_pip
   install_ansible
 }
 
