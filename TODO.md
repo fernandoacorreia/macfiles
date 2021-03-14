@@ -1,3 +1,5 @@
+- fzf: install
+  - See https://github.com/junegunn/fzf/commit/d57c6d0284c2fc7040d101bc70f39978ff9e58f8
 - save ~/.config/karabiner/ (create symlink)
 - nvim-miniyank
 - Ag support in neovim
