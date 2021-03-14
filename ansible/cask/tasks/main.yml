@@ -1,7 +1,7 @@
 ---
 - name: "Check Cask installation status"
   stat:
-    path: "/opt/homebrew/Library/Homebrew/cask"
+    path: "{{ homebrew_prefix }}/Library/Homebrew/cask"
   register: "cask_check"
 
 - name: "Install Cask"

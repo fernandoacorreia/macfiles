@@ -7,6 +7,10 @@
   set_fact:
     home_dir: "{{ lookup('env','HOME') }}"
 
+- name: Set Homebrew directory
+  set_fact:
+    homebrew_prefix: "{{ lookup('env','HOMEBREW_PREFIX') }}"
+
 - name: Create basic directories
   file: path={{ home_dir }}/{{ item }} state=directory
   with_items:

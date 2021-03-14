@@ -2,7 +2,7 @@
 ---
 - name: "Check tig installation status"
   stat:
-    path: "/usr/local/bin/tig"
+    path: "{{ homebrew_prefix }}/bin/tig"
   register: "tig_check"
 
 - name: "Install tig"

@@ -14,5 +14,9 @@ source ~/macfiles/vendor/.purepower
 
 antigen apply
 
-source <(kubectl completion zsh)
+# kubectl completion
+if test -f kubectl; then
+  source <(kubectl completion zsh)
+fi
+
 source ~/.profile

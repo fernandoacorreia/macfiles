@@ -4,7 +4,7 @@
 
 - name: "Check neovim installation status"
   stat:
-    path: "/opt/homebrew/bin/nvim"
+    path: "{{ homebrew_prefix }}/bin/nvim"
   register: "neovim_check"
 
 - name: "Install neovim"
@@ -12,5 +12,5 @@
   when: not neovim_check.stat.exists
 
 - name: "Create symlink to neovim"
-  file: src=/usr/local/bin/nvim dest=/usr/local/bin/vi state=link force=yes
+  file: src="{{ homebrew_prefix }}/bin/nvim" dest=/usr/local/bin/vi state=link force=yes
   become: yes

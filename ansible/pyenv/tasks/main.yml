@@ -2,7 +2,7 @@
 ---
 - name: "Check pyenv installation status"
   stat:
-    path: "/usr/local/bin/pyenv"
+    path: "{{ homebrew_prefix }}/bin/pyenv"
   register: "pyenv_check"
 
 - name: "Install pyenv"

@@ -1,4 +1,7 @@
-- use HOMEBREW_PREFIX for /opt directory e.g. $(brew --prefix)/opt/fzf/install
 - save ~/.config/karabiner/ (create symlink)
 - nvim-miniyank
 - Ag support in neovim
+- gnubin
+- golang
+- rbenv
+- templates
