@@ -129,3 +129,7 @@ augroup END
 " Command abbreviations
 cabbrev ag Ag!
 cabbrev gg GGrep!
+
+" Disable netrw history
+" Based on https://stackoverflow.com/a/24167309/376366
+let g:netrw_dirhistmax = 0
