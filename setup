@@ -67,6 +67,14 @@ update_submodules() {
   fi
 }
 
+install_brew() {
+  if ! test -f /opt/homebrew/bin/brew; then
+    echo "Installing Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+}
+
 upgrade_pip() {
   if missing_executable pip3; then
     echo "pip3 not found"
@@ -74,15 +82,6 @@ upgrade_pip() {
   fi
   echo "Upgrading pip3"
   sudo -H pip3 install --upgrade pip
-}
-
-install_brew() {
-  if missing_executable brew; then
-    upgrade_pip
-    echo "Installing Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  fi
 }
 
 install_ansible() {

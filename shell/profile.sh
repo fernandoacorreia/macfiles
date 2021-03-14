@@ -10,7 +10,10 @@ source $HOME/macfiles/shell/less-termcap.sh
 source $HOME/macfiles/shell/init.sh
 
 # Support a local profile script that's not saved to source control.
-if test -f $HOME/local_profile.sh
+if test -f $HOME/.local_profile
 then
-  source $HOME/local_profile.sh
+  source $HOME/.local_profile
 fi
+
+# Homebrew paths
+eval "$(/opt/homebrew/bin/brew shellenv)"

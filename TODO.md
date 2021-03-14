@@ -1,5 +1,4 @@
-- echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/fernando/.zprofile
-- use brew prefix for /opt directory e.g. $(brew --prefix)/opt/fzf/install
+- use HOMEBREW_PREFIX for /opt directory e.g. $(brew --prefix)/opt/fzf/install
 - save ~/.config/karabiner/ (create symlink)
 - nvim-miniyank
 - Ag support in neovim
