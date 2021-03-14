@@ -4,6 +4,7 @@
   with_items:
     - colordiff
     - gh
+    - git
     - htop
     - ripgrep
     - stern
