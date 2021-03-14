@@ -1,0 +1,3 @@
+---
+- name: "Create symlink to karabiner configuration"
+  file: src={{ home_dir }}/macfiles/config/karabiner dest={{ home_dir }}/.config/karabiner state=link
