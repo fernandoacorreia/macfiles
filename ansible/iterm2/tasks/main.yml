@@ -5,5 +5,5 @@
   register: "iterm2_check"
 
 - name: "Install iTerm2"
-  command: brew cask install iterm2
+  command: brew install iterm2
   when: not iterm2_check.stat.exists

@@ -11,6 +11,6 @@
   - sourcetree
   - shell
   - tig
-  - fzf
   - pyenv
+  - fzf
   - neovim

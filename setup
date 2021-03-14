@@ -4,14 +4,70 @@
 #
 set -o nounset -o errexit -o pipefail
 
-SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# Settings
+REPO_NAME="macfiles"
+REPO_URL="git@github.com:fernandoacorreia/$REPO_NAME.git"
+REPO_DIR="$HOME/$REPO_NAME"
 
-function missing_executable() {
+missing_executable() {
   local executable=$1
   ! [ -x "$(command -v ${executable})" ]
 }
 
-function upgrade_pip() {
+invoke_git() {
+  echo "Invoking git to trigger automated setup if it's not installed"
+  git --version
+}
+
+create_ssh_key() {
+  if ! test -f $HOME/.ssh/id_ed25519
+  then
+    echo "Creating ssh key"
+    mkdir -p "$HOME/.ssh"
+    ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)"
+    echo "New ssh key created:"
+    cat $HOME/.ssh/id_ed25519.pub
+    echo "Add it to your GitHub account and run this script again."
+    echo "See https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/"
+    exit 1
+  fi
+}
+
+add_ssh_key_to_agent() {
+  # Start ssh agent
+  eval "$(ssh-agent -s)"
+  if ! grep 'IdentityFile ~/.ssh/id_ed25519' $HOME/.ssh/config &>/dev/null; then
+    # Create ssh config entry
+    cat <<EOF >>$HOME/.ssh/config
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+EOF
+    # Add key to agent
+    ssh-add -K $HOME/.ssh/id_ed25519
+  fi
+}
+
+clone_repository() {
+  if ! test -d "$REPO_DIR"
+  then
+    echo "Cloning from $REPO_URL"
+    cd $HOME
+    git clone $REPO_URL $REPO_NAME
+  fi
+}
+
+update_submodules() {
+  echo "Updating git submodules"
+  cd "$REPO_DIR"
+  if ! git submodule update --init --recursive; then
+    echo "Error updating git submodules."
+    exit 1
+  fi
+}
+
+upgrade_pip() {
   if missing_executable pip3; then
     echo "pip3 not found"
     exit 1
@@ -20,7 +76,7 @@ function upgrade_pip() {
   sudo -H pip3 install --upgrade pip
 }
 
-function install_brew() {
+install_brew() {
   if missing_executable brew; then
     upgrade_pip
     echo "Installing Homebrew"
@@ -29,7 +85,7 @@ function install_brew() {
   fi
 }
 
-function install_ansible() {
+install_ansible() {
   if missing_executable ansible-playbook; then
     upgrade_pip
     echo "Installing Ansible"
@@ -37,14 +93,19 @@ function install_ansible() {
   fi
 }
 
-function apply_playbook() {
+apply_playbook() {
   echo "Applying Ansible playbook"
-  cd "$SCRIPT_DIR/ansible"
+  cd "$REPO_DIR/ansible"
   export ANSIBLE_NOCOWS=1
   ansible-playbook -i inventory --ask-become-pass playbook.yml
 }
 
 echo "Setting up machine"
+invoke_git
+create_ssh_key
+add_ssh_key_to_agent
+clone_repository
+update_submodules
 install_brew
 install_ansible
 apply_playbook

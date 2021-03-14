@@ -6,7 +6,10 @@
   register: "fzf_check"
 
 - name: "Install fzf"
-  shell: |
-    brew install fzf
-    /usr/local/opt/fzf/install
+  shell: brew install fzf
   when: not fzf_check.stat.exists
+
+- name: "Install fzf keybindings and fuzzy completion"
+  shell: /opt/homebrew/opt/fzf/install
+  when: not fzf_check.stat.exists
+  ignore_errors: yes # see https://github.com/junegunn/fzf/issues/2361

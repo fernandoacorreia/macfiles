@@ -4,7 +4,7 @@
 
 - name: "Check neovim installation status"
   stat:
-    path: "/usr/local/bin/nvim"
+    path: "/opt/homebrew/bin/nvim"
   register: "neovim_check"
 
 - name: "Install neovim"
