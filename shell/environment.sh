@@ -9,7 +9,7 @@ export LESS='--quit-if-one-screen --no-init --RAW-CONTROL-CHARS'
 export SBT_OPTS="-Xss256m -Xmx6g"
 
 # pyenv
-export PYENV_ROOT="{{ homebrew_prefix }}/opt/pyenv"
+export PYENV_ROOT="$HOMEBREW_PREFIX/opt/pyenv"
 
 # zsh vi mode
 # https://dougblack.io/words/zsh-vi-mode.html
