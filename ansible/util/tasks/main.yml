@@ -1,6 +1,6 @@
 ---
 - name: Install general utilities
-  command: brew install {{item}}
+  command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade {{item}}"
   with_items:
     - colordiff
     - gh

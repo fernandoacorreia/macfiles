@@ -8,7 +8,7 @@
   register: "neovim_check"
 
 - name: "Install neovim"
-  command: brew install neovim
+  command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade neovim"
   when: not neovim_check.stat.exists
 
 - name: "Create symlink to neovim"

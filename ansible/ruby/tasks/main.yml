@@ -1,0 +1,6 @@
+---
+- name: Install rbenv
+  command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade {{item}}"
+  with_items:
+    - ruby-build
+    - rbenv

@@ -1,4 +1,4 @@
-# fzf: 
+# fzf:
 ---
 - name: "Check fzf installation status"
   stat:
@@ -6,7 +6,7 @@
   register: "fzf_check"
 
 - name: "Install fzf"
-  shell: brew install fzf
+  command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade fzf"
   when: not fzf_check.stat.exists
 
 - name: "Install fzf keybindings and fuzzy completion"

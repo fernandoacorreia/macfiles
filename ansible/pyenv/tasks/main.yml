@@ -6,5 +6,5 @@
   register: "pyenv_check"
 
 - name: "Install pyenv"
-  command: brew install pyenv
+  command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade pyenv"
   when: not pyenv_check.stat.exists
