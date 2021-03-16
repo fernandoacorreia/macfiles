@@ -24,3 +24,6 @@ export PATH="$HOME/macfiles/bin:$PATH"
 
 # Add gnubin to PATH
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+
+# rbenv
+eval "$(rbenv init -)"
