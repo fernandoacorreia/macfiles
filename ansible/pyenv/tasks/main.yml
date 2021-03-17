@@ -1,10 +1,4 @@
 # pyenv: https://github.com/pyenv/pyenv#homebrew-on-macos
 ---
-- name: "Check pyenv installation status"
-  stat:
-    path: "{{ homebrew_prefix }}/bin/pyenv"
-  register: "pyenv_check"
-
 - name: "Install pyenv"
   command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade pyenv"
-  when: not pyenv_check.stat.exists

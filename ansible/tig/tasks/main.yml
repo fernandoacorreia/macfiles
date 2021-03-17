@@ -1,11 +1,5 @@
 # tig: https://github.com/jonas/tig
 ---
-- name: "Check tig installation status"
-  stat:
-    path: "{{ homebrew_prefix }}/bin/tig"
-  register: "tig_check"
-
 - name: "Install tig"
   command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade tig"
-  when: not tig_check.stat.exists
 

@@ -1,9 +1,3 @@
 ---
-- name: "Check iTerm2 installation status"
-  stat:
-    path: "/Applications/iTerm.app"
-  register: "iterm2_check"
-
 - name: "Install iTerm2"
   command: "{{ home_dir }}/macfiles/bin/brew-install-or-upgrade iterm2"
-  when: not iterm2_check.stat.exists
