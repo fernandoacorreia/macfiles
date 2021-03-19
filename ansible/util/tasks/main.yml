@@ -6,6 +6,7 @@
     - gh
     - git
     - htop
+    - libpq
     - ripgrep
     - stern
     - tldr
