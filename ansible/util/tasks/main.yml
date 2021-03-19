@@ -9,6 +9,7 @@
     - libpq
     - ripgrep
     - stern
+    - telnet
     - tldr
     - tree
     - watch
