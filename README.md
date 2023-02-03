@@ -1,3 +1,7 @@
+This project has been replaced with [dotfiles](https://github.com/fernandoacorreia/dotfiles).
+
+------
+
 # macfiles
 
 Files from my home directory on a Mac
